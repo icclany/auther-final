@@ -9,12 +9,7 @@ router.use(HttpError(404).middleware());
 router.use(function (err, req, res, next) {
 	err.status = err.status || 500;
 	console.error(err.stack);
-	var html = [
-		'<html><body>',
-		'<p>ERROR: ', err.status, ' - ', err.message, '</p>',
-		'<pre>', err.stack, '</pre>',
-		'</body></html>'
-	].join('');
+	var html = '<h1>SORRY</h1>';
 	res.status(err.status).send(html);
 });
 
